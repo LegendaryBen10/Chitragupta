@@ -975,21 +975,56 @@ if __name__ == '__main__':
     iic_committee_data = scrape_headers_paragraphs_by_selectors(iic_url, clicks, headers, paragraphs)
     #print(iic_data)
 
-    #vision and mission
+    #vision of kmit
     vis_url = "https://kmit.in/aboutus/aboutus.php"
     clicks = [r"body > div.background > div > ul > li:nth-child(2) > a"]
 
     headers = [
-        r"#visionmission > h6:nth-child(1)",
-        r"#visionmission > h6:nth-child(3)"
+        r""
+       
+    ]
+    custom = [
+        "Vision of KMIT"
     ]
     paragraphs = [
-        [r"#visionmission > ul:nth-child(2) > li:nth-child(1) > p",r"#visionmission > ul:nth-child(2) > li:nth-child(2) > p"],
+        [r"#visionmission > ul:nth-child(2) > li:nth-child(1) > p",r"#visionmission > ul:nth-child(2) > li:nth-child(2) > p"]
+    ]
+
+    vis_data = scrape_customheaders_paragraphs_by_selectors(vis_url, clicks, headers, paragraphs,custom_headers=custom)
+    #print(vis_data)
+
+    #mission of kmit
+    mis_url = "https://kmit.in/aboutus/aboutus.php"
+    clicks = [r"body > div.background > div > ul > li:nth-child(2) > a"]
+
+    headers = [
+        r""
+       
+    ]
+    custom = [
+        "Mission of KMIT"
+    ]
+    paragraphs = [
         [r"#visionmission > ul:nth-child(4) > li:nth-child(1) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(2) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(3) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(4) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(5) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(6) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(7) > p"]
     ]
 
-    vis_data = scrape_headers_paragraphs_by_selectors(vis_url, clicks, headers, paragraphs)
-    #print(vis_data)
+    mis_data = scrape_customheaders_paragraphs_by_selectors(mis_url, clicks, headers, paragraphs,custom_headers=custom)
+
+    #achievements of kmit
+    ach_url = "https://kmit.in/aboutus/aboutus.php"
+    clicks = [r"body > div.background > div > ul > li:nth-child(6) > a"]
+
+    headers = [
+        r""
+    ]
+
+    custom = [
+        "Achievements of KMIT"
+    ]
+
+    tables = [r"#achievements > table"]
+
+    ach_data =  scrape_customheaders_tables_by_selectors(ach_url, clicks, headers, tables,custom_headers=custom)
 
     #aakarshan
     aakar_url = "https://kmit.in/intiatives/aakarshan.php"
@@ -1417,6 +1452,22 @@ if __name__ == '__main__':
 
     pri_data = scrape_headers_paragraphs_by_selectors(pri_url, clicks, headers, paragraphs)
 
+    #about kmit
+    kmit_url = "https://kmit.in/index.php"
+    clicks = []
+    headers = [
+        r""
+    ]
+    custom = [
+        "Information About KMIT"
+    ]
+    paragraphs = [
+        [r"body > div.background > div > div:nth-child(1) > div.col-md-5 > p",r"body > div.background > div > div:nth-child(2) > div > p"]
+        
+    ]
+    kmit_data = scrape_customheaders_paragraphs_by_selectors(kmit_url, clicks, headers, paragraphs,custom_headers=custom)
+
+
     print("INFO: Data scraping finished.")
 
     # UPLOADING DATA TO CHROMADB
@@ -1461,6 +1512,7 @@ if __name__ == '__main__':
     upload_to_chromadb(pr_data, "pr_details", "pr data")
     upload_to_chromadb(pr_table_data, "pr_table_details", "pr table data")
     upload_to_chromadb(vis_data, "vision_details", "vision data")
+    upload_to_chromadb(mis_data, "mission_details", "mission data")
     upload_to_chromadb(iic_table_data, "iic_events_details", "iic events data")
     upload_to_chromadb(iic_committee_data, "iic_committee_details", "iic committee data")
     upload_to_chromadb(pres_data, "pres_details", "pres data")
@@ -1473,6 +1525,8 @@ if __name__ == '__main__':
     upload_to_chromadb(patents_2021_data, "patents_2021_details", "patents 2021 data")
     upload_to_chromadb(patents_2022_data, "patents_2022_details", "patents 2022 data")
     upload_to_chromadb(pri_data, "principal_details", "principal data")
+    upload_to_chromadb(kmit_data, "aboutkmit_details", "kmit data")
+    upload_to_chromadb(ach_data, "achievements_details", "achievements data")
     print("INFO: ChromaDB upload finished.")
 
     # Start the background worker thread for Gemini API calls
