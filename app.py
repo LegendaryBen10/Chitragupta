@@ -623,8 +623,7 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
-
+        r""
     ]
 
     custom = [
@@ -632,246 +631,170 @@ if __name__ == '__main__':
     ]
 
     paragraphs = [
-        ["body > div > section > div > div.row > div.col-sm-9 > p"]
-
+        [r"body > div > section > div > div.row > div.col-sm-9 > p"]
     ]
 
     diraca_data = scrape_customheaders_paragraphs_by_selectors(diraca_url, clicks, headers, paragraphs,custom_headers=custom)
 
     #24-25 placements
     latest_placement_url = "https://kmit.in/placements/placement.php"
-    clicks = ["body > div.background > div:nth-child(2) > div > ul > li:nth-child(4) > a"]
-    headers=[""]
+    clicks = [r"body > div.background > div:nth-child(2) > div > ul > li:nth-child(4) > a"]
+    headers=[r""]
     custom = [
         "2024-2025(2024-25) placements table"
     ]
-    latest_table_selector = ["#cp2024-25 > div > table"]
+    latest_table_selector = [r"#cp2024-25 > div > table"]
     placements_data = scrape_customheaders_tables_by_selectors(latest_placement_url, clicks, headers, latest_table_selector,custom_headers=custom)
-    # print(placements_data)
 
     #23-24 placements
     old_placement_url = "https://kmit.in/placements/placement.php"
     clicks = [
-        "body > div.background > div:nth-child(2) > div > ul > li:nth-child(4) > a",
-        "#campus > div > ul > li:nth-child(2) > a > b"
+        r"body > div.background > div:nth-child(2) > div > ul > li:nth-child(4) > a",
+        r"#campus > div > ul > li:nth-child(2) > a > b"
     ]
-    headers=[""]
+    headers=[r""]
     custom = [
         "2023-2024(2023-24) placements table"
     ]
-    old_table_selector = ["#cp2023-24 > div > table"]
-
+    old_table_selector = [r"#cp2023-24 > div > table"]
     placements_data_2023_2024 = scrape_customheaders_tables_by_selectors(old_placement_url, clicks, headers, old_table_selector,custom_headers=custom)
-    #print(placements_data_2023_2024)
 
     #admission procedure
-    #(with headers)
     admission_url = "https://kmit.in/admissions/admission-procedure.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#kmitra > div > div > div > h5:nth-child(10)"]
-    admission_table_selector = ["#kmitra > div > div > div > div > div.box > table"]
+    clicks = []
+    headers=[r"#kmitra > div > div > div > h5:nth-child(10)"]
+    admission_table_selector = [r"#kmitra > div > div > div > div > div.box > table"]
     admissions_data = scrape_headers_tables_by_selectors(admission_url, clicks, headers, admission_table_selector)
-    #print(admissions_data)
 
-    # #(without headers)
-    # admission_url = "https://kmit.in/admissions/admission-procedure.php"
-    # clicks = []  # No clicks needed for admissions table
-    # admission_table_selector = "div.box table.table.table-striped.custom"
-    # admissions_data = scrape_table_from_page(admission_url, clicks, admission_table_selector)
-    # #print(admissions_data)
-
-    #couses offered
+    #courses offered
     courses_url="https://kmit.in/admissions/coursesoffered.php"
-    clicks = []  # No clicks needed for admissions table
-    courses_table_selector = "div.box table.table.table-striped.custom"
+    clicks = []
+    courses_table_selector = r"div.box table.table.table-striped.custom"
     courses_data = scrape_table_from_page(courses_url, clicks, courses_table_selector)
 
     #cse faculty
     cse_url="https://www.kmit.in/department/faculty_CSE.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#Sponsored\ Research > div:nth-child(1) > header > h4"]
-    cse_table_selector = ["div.box table.table.table-striped.custom"]
+    clicks = []
+    headers=[r"#Sponsored\ Research > div:nth-child(1) > header > h4"]
+    cse_table_selector = [r"div.box table.table.table-striped.custom"]
     cse_data = scrape_headers_tables_by_selectors(cse_url, clicks , headers , cse_table_selector)
-    #print(cse_data)
 
     #csm faculty
     csm_url="https://www.kmit.in/department/faculty_csm.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#faculty-CSM\(AI\&ML\) > div.container > div > div:nth-child(1) > header > h4"]
-    csm_table_selector = ["#faculty-CSM\(AI\&ML\) > div.container > div > div:nth-child(2) > div > div > table"]
+    clicks = []
+    headers=[r"#faculty-CSM\(AI\&ML\) > div.container > div > div:nth-child(1) > header > h4"]
+    csm_table_selector = [r"#faculty-CSM\(AI\&ML\) > div.container > div > div:nth-child(2) > div > div > table"]
     csm_data = scrape_headers_tables_by_selectors(csm_url, clicks , headers , csm_table_selector)
-    #print(csm_data)
 
     #it faculty
     it_url="https://www.kmit.in/department/faculty_it.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#faculty-IT > div.container > div > div:nth-child(1) > header > h4"]
-    it_table_selector = ["div.box table.table.table-striped.custom"]
+    clicks = []
+    headers=[r"#faculty-IT > div.container > div > div:nth-child(1) > header > h4"]
+    it_table_selector = [r"div.box table.table.table-striped.custom"]
     it_data = scrape_headers_tables_by_selectors(it_url, clicks , headers , it_table_selector)
-    #print(it_data)
 
     #csd faculty
     csd_url="https://www.kmit.in/department/faculty_csd.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#faculty-CSE\(DATA\ SCIENCE\) > div.container > div > div:nth-child(1) > header > h4"]
-    csd_table_selector = ["div.box table.table.table-striped.custom"]
+    clicks = []
+    headers=[r"#faculty-CSE\(DATA\ SCIENCE\) > div.container > div > div:nth-child(1) > header > h4"]
+    csd_table_selector = [r"div.box table.table.table-striped.custom"]
     csd_data = scrape_headers_tables_by_selectors(csd_url, clicks , headers , csd_table_selector)
-    #print(csd_data)
 
-    # #hs faculty
+    #hs faculty
     hs_url="https://www.kmit.in/department/faculty_hs.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#faculty-H\&S > div > div.row > div > header > h4"]
-    hs_table_selector = ["div.box table.table.table-striped.custom"]
+    clicks = []
+    headers=[r"#faculty-H\&S > div > div.row > div > header > h4"]
+    hs_table_selector = [r"div.box table.table.table-striped.custom"]
     hs_data = scrape_headers_tables_by_selectors(hs_url, clicks, headers, hs_table_selector)
-    #print(hs_data)
 
-    # #research publications
+    #research publications
     research_url="https://kmit.in/research/researchpublications.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#researchpublications > div > header > h4"]
-    research_table_selector = ["div.box table.table-striped"]
+    clicks = []
+    headers=[r"#researchpublications > div > header > h4"]
+    research_table_selector = [r"div.box table.table-striped"]
     research_data = scrape_headers_tables_by_selectors(research_url, clicks, headers, research_table_selector)
-    #print(research_data)
 
-    # #contact exam
+    #contact exam
     contact_url="https://kmit.in/examination/contact_exam.php"
-    clicks = []  # No clicks needed for admissions table
-    contact_table_selector = "table"
+    clicks = []
+    contact_table_selector = r"table"
     contact_data = scrape_table_from_page(contact_url, clicks, contact_table_selector)
-    #print(contact_data)
 
     #student council
     council_url="https://kmit.in/intiatives/studentcouncil.php"
-    clicks = []  # No clicks needed for admissions table
-    headers=["#bec > div > div > header > h4"]
-    council_table_selector = ["div.box table.table.table-striped"]
+    clicks = []
+    headers=[r"#bec > div > div > header > h4"]
+    council_table_selector = [r"div.box table.table.table-striped"]
     council_data = scrape_headers_tables_by_selectors(council_url, clicks, headers, council_table_selector)
-    #print(council_data)
 
-    # #iic events
+    #iic events
     iic_url="https://kmit.in/research/iic.php"
     clicks = [r"#Consultancy\ Projects > div:nth-child(2) > div > ul > li:nth-child(2) > a"]
-    headers=[""]
+    headers=[r""]
     custom = [
         "iic events/workshops/training table"
     ]
-    iic_table_selector = ["#events > table"]
+    iic_table_selector = [r"#events > table"]
     iic_table_data = scrape_customheaders_tables_by_selectors(iic_url, clicks, headers, iic_table_selector,custom_headers=custom)
-    #print(iic_table_data)
 
-    # # Patents 2022
+    #Patents 2022
     latestpatents_url="https://kmit.in/research/patents.php"
     clicks = [r"body > div > div > ul > li:nth-child(1) > a"]
-    headers=[""]
+    headers=[r""]
     custom = [
         "Patents 2022 or patents 2022"
     ]
-    patents_table_selector = ["#achieve2223 > div > div"]
+    patents_table_selector = [r"#achieve2223 > div > div"]
     patents_2022_data = scrape_customheaders_tables_by_selectors(latestpatents_url, clicks, headers, patents_table_selector,custom_headers=custom)
-    #print(patents_2022_data)
 
-    # Patents 2021
+    #Patents 2021
     oldpatents_url="https://kmit.in/research/patents.php"
     clicks = [r"body > div > div > ul > li:nth-child(2) > a"]
-    headers=[""]
+    headers=[r""]
     custom = [
         "Patents 2021 or patents 2021"
     ]
-    oldpatents_table_selector = ["#achieve2122 > div > div"]
+    oldpatents_table_selector = [r"#achieve2122 > div > div"]
     patents_2021_data = scrape_customheaders_tables_by_selectors(oldpatents_url, clicks, headers, oldpatents_table_selector,custom_headers=custom)
-    #print(patents_2021_data)
-
-    # Patents(all)
-    # patents_url="https://kmit.in/research/patents.php"
-    # clicks = [r"body > div > div > ul > li:nth-child(3) > a"]
-    # result = scrape_webpage(patents_url, clicks, heading_tag="h4", headless=True)
-    # #print(result)
-
-    # NSS Events(all)
-    # nss_url="https://kmit.in/intiatives/nssevents.php"
-    # clicks = [] # No clicks needed for admissions table
-    # nss_table_selector = "#faculty-cse > div.container > div > div:nth-child(3) > div"
-    # nss_data = scrape_webpage(nss_url, clicks, heading_tag="h4",headless=True)
-    # #print(nss_data)
-
-    # #NSS Events Contact Details
-    # nss_url="https://kmit.in/intiatives/nssevents.php"
-    # clicks = [] # No clicks needed for admissions table
-    # headers=["#faculty-cse > div.container > div > div:nth-child(1) > header > h4"]
-    # nss_details_table_selector = ["#faculty-cse > div.container > div > div:nth-child(3) > div > div > table"]
-    # nss_detail_data = scrape_headers_tables_by_selectors(nss_url, clicks, headers, nss_details_table_selector)
-    # #print(nss_detail_data)
-
-    # aeb staff
-    # aeb_url="https://kmit.in/examination/aebstaff.php"
-    # clicks = [] # No clicks needed for admissions table
-    # aeb_staff_detail_data = scrape_webpage(aeb_url, clicks, heading_tag="h4",headless=True)
-    # #print(aeb_staff_detail_data)
-
-    # sports activities
-    # sports_url = "https://kmit.in/infrastructure/sportsfacilities.php"
-    # clicks = []  # No clicks needed
-    # result = scrape_webpage(sports_url, clicks, heading_tag="h3", headless=True)
-    # #print(result)
-
-    #library
-    # lib_url="https://kmit.in/infrastructure/aboutLib.php"
-    # clicks = []
-    # result = scrape_webpage(lib_url, clicks, heading_tag="h4", headless=True)
-    # #print(result)
-
-    #teleuniv
-    # tel_url="https://kmit.in/uniqueness/teleuniv.php"
-    # clicks = []
-    # result = scrape_webpage(tel_url, clicks, heading_tag="h4", headless=True)
-    # #print(result)
 
     #management(founder)
     foun_url = "https://kmit.in/administration/management.php"
     clicks = [r"#Sponsored\ Research > div:nth-child(2) > div > ul > li:nth-child(2) > a"]
-
     headers = [
-        "#founder > div > div > div.col-sm-9 > header:nth-child(1) > h4",
-        "#founder > div > div > div.col-sm-9 > header:nth-child(4) > h4"
+        r"#founder > div > div > div.col-sm-9 > header:nth-child(1) > h4",
+        r"#founder > div > div > div.col-sm-9 > header:nth-child(4) > h4"
     ]
     paragraphs = [
-        ["#founder > div > div > div.col-sm-9 > p:nth-child(2)","#founder > div > div > div.col-sm-9 > p:nth-child(3)"],
-        ["#founder > div > div > div.col-sm-9 > blockquote"]
+        [r"#founder > div > div > div.col-sm-9 > p:nth-child(2)",r"#founder > div > div > div.col-sm-9 > p:nth-child(3)"],
+        [r"#founder > div > div > div.col-sm-9 > blockquote"]
     ]
-
     founder_data = scrape_headers_paragraphs_by_selectors(foun_url, clicks, headers, paragraphs)
-    #print(founder_data)
 
     #management(director)
     dir_url = "https://kmit.in/administration/management.php"
     clicks = [r"#Sponsored\ Research > div:nth-child(2) > div > ul > li:nth-child(3) > a"]
-
     headers = [
-        ""
+        r""
     ]
     custom = [
         "Director of Genesis Solutions Pvt. Ltd."
     ]
     paragraphs = [
-        ["#director > div > div > div.col-sm-9 > p"]
+        [r"#director > div > div > div.col-sm-9 > p"]
     ]
-
     director_data = scrape_customheaders_paragraphs_by_selectors(dir_url, clicks, headers, paragraphs,custom_headers=custom)
-    #print(director_data)
 
     #sports(indoor)
     in_url = "https://kmit.in/infrastructure/sportsfacilities.php"
     clicks = [r"#appsHeadingOne > a"]
-
     headers = [
-        "#home-initiatives > div > div > div > div:nth-child(1) > header > h5"
+        r"#home-initiatives > div > div > div > div:nth-child(1) > header > h5"
     ]
     paragraphs = [
-        ["#appsCollapseOne > div > p","#appsCollapseTwo > div > p","#appsCollapseThree > div > p"]
+        [r"#appsCollapseOne > div > p",r"#appsCollapseTwo > div > p",r"#appsCollapseThree > div > p"]
     ]
-
     in_data = scrape_headers_paragraphs_by_selectors(in_url, clicks, headers, paragraphs)
+
     #print(spo1_data)
 
     # #sports(yoga)
@@ -907,10 +830,10 @@ if __name__ == '__main__':
     clicks = [r"#headingOne > a"]
 
     headers = [
-        "#home-initiatives > div > div > div > div:nth-child(2) > header > h5"
+        r"#home-initiatives > div > div > div > div:nth-child(2) > header > h5"
     ]
     paragraphs = [
-        ["#collapseOne > div > p","#collapseTwo > div > p","#collapseThree > div > p"]
+        [r"#collapseOne > div > p",r"#collapseTwo > div > p",r"#collapseThree > div > p"]
     ]
 
     out_data = scrape_headers_paragraphs_by_selectors(out_url, clicks, headers, paragraphs)
@@ -921,10 +844,10 @@ if __name__ == '__main__':
     # clicks = [r"#headingTwo > a"]
 
     # headers = [
-    #     "#home-initiatives > div > div > div > div:nth-child(2) > header > h5"
+    #     r"#home-initiatives > div > div > div > div:nth-child(2) > header > h5"
     # ]
     # paragraphs = [
-    #     ["#collapseTwo > div > p","#collapseThree > div > p"]
+    #     [r"#collapseTwo > div > p",r"#collapseThree > div > p"]
     # ]
 
     # spo5_data = scrape_headers_paragraphs_by_selectors(spo5_url, clicks, headers, paragraphs)
@@ -935,10 +858,10 @@ if __name__ == '__main__':
     # clicks = [r"#headingThree > a"]
 
     # headers = [
-    #     "#home-initiatives > div > div > div > div:nth-child(2) > header > h5"
+    #     r"#home-initiatives > div > div > div > div:nth-child(2) > header > h5"
     # ]
     # paragraphs = [
-    #     ["#collapseThree > div > p"]
+    #     [r"#collapseThree > div > p"]
     # ]
 
     # spo6_data = scrape_headers_paragraphs_by_selectors(spo6_url, clicks, headers, paragraphs)
@@ -949,10 +872,10 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "body > div > section > div > header > h4"
+        r"body > div > section > div > header > h4"
     ]
     paragraphs = [
-        ["body > div > section > div > div.row > div.col-sm-7 > p"]
+        [r"body > div > section > div > div.row > div.col-sm-7 > p"]
     ]
 
     tess_data = scrape_headers_paragraphs_by_selectors(tess_url, clicks, headers, paragraphs)
@@ -963,10 +886,10 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#about-hod > div > header > h4"
+        r"#about-hod > div > header > h4"
     ]
     paragraphs = [
-        ["#about-hod > div > div > div:nth-child(1) > div:nth-child(2) > p:nth-child(1)","#about-hod > div > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(1)","#about-hod > div > div > div:nth-child(3) > div:nth-child(2) > p:nth-child(1)"]
+        [r"#about-hod > div > div > div:nth-child(1) > div:nth-child(2) > p:nth-child(1)",r"#about-hod > div > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(1)",r"#about-hod > div > div > div:nth-child(3) > div:nth-child(2) > p:nth-child(1)"]
     ]
 
     lms_data = scrape_headers_paragraphs_by_selectors(lms_url, clicks, headers, paragraphs)
@@ -977,10 +900,10 @@ if __name__ == '__main__':
     # clicks = []
 
     # headers = [
-    #     "#about-hod > div > header > h4"
+    #     r"#about-hod > div > header > h4"
     # ]
     # paragraphs = [
-    #     ["#about-hod > div > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(1)","#about-hod > div > div > div:nth-child(3) > div:nth-child(2) > p:nth-child(1)"]
+    #     [r"#about-hod > div > div > div:nth-child(2) > div:nth-child(2) > p:nth-child(1)",r"#about-hod > div > div > div:nth-child(3) > div:nth-child(2) > p:nth-child(1)"]
     # ]
 
     # lms2_data = scrape_headers_paragraphs_by_selectors(lms2_url, clicks, headers, paragraphs)
@@ -991,10 +914,10 @@ if __name__ == '__main__':
     # clicks = []
 
     # headers = [
-    #     "#about-hod > div > header > h4"
+    #     r"#about-hod > div > header > h4"
     # ]
     # paragraphs = [
-    #     ["#about-hod > div > div > div:nth-child(3) > div:nth-child(2) > p:nth-child(1)"]
+    #     [r"#about-hod > div > div > div:nth-child(3) > div:nth-child(2) > p:nth-child(1)"]
     # ]
 
     # lms3_data = scrape_headers_paragraphs_by_selectors(lms3_url, clicks, headers, paragraphs)
@@ -1005,8 +928,8 @@ if __name__ == '__main__':
     # clicks = []
 
     # headers = [
-    #     ""
-    #     #"body > div > section > div > div.row > div.col-sm-9 > header:nth-child(3) > h4"
+    #     r""
+    #     #r"body > div > section > div > div.row > div.col-sm-9 > header:nth-child(3) > h4"
     # ]
 
     # custom = [
@@ -1014,7 +937,7 @@ if __name__ == '__main__':
     # ]
 
     # paragraphs = [
-    #     "body > div > section > div > div.row > div.col-sm-9 > p"
+    #     r"body > div > section > div > div.row > div.col-sm-9 > p"
     #     #["body > div > section > div > div.row > div.col-sm-9 > blockquote"]
     # ]
 
@@ -1026,13 +949,13 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
     custom = [
         "President of KMIT"
     ]
     paragraphs = [
-        ["#president > div > div > div.col-sm-9 > p"]
+        [r"#president > div > div > div.col-sm-9 > p"]
     ]
 
     pres_data = scrape_customheaders_paragraphs_by_selectors(pres_url, clicks, headers, paragraphs,custom_headers=custom)
@@ -1043,10 +966,10 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#Consultancy\ Projects > div:nth-child(1) > header > h4"
+        r"#Consultancy\ Projects > div:nth-child(1) > header > h4"
     ]
     paragraphs = [
-        ["#committee > div > ul > li:nth-child(1) > p","#committee > div > ul > li:nth-child(2) > p","#committee > div > ul > li:nth-child(3) > p","#committee > div > ul > li:nth-child(4) > p","#committee > div > ul > li:nth-child(5) > p","#committee > div > ul > li:nth-child(6) > p","#committee > div > ul > li:nth-child(7) > p","#committee > div > ul > li:nth-child(8) > p","#committee > div > ul > li:nth-child(9) > p"]
+        [r"#committee > div > ul > li:nth-child(1) > p",r"#committee > div > ul > li:nth-child(2) > p",r"#committee > div > ul > li:nth-child(3) > p",r"#committee > div > ul > li:nth-child(4) > p",r"#committee > div > ul > li:nth-child(5) > p",r"#committee > div > ul > li:nth-child(6) > p",r"#committee > div > ul > li:nth-child(7) > p",r"#committee > div > ul > li:nth-child(8) > p",r"#committee > div > ul > li:nth-child(9) > p"]
     ]
 
     iic_committee_data = scrape_headers_paragraphs_by_selectors(iic_url, clicks, headers, paragraphs)
@@ -1057,27 +980,26 @@ if __name__ == '__main__':
     clicks = [r"body > div.background > div > ul > li:nth-child(2) > a"]
 
     headers = [
-        "#visionmission > h6:nth-child(1)",
-        "#visionmission > h6:nth-child(3)"
+        r"#visionmission > h6:nth-child(1)",
+        r"#visionmission > h6:nth-child(3)"
     ]
     paragraphs = [
-        ["#visionmission > ul:nth-child(2) > li:nth-child(1) > p","#visionmission > ul:nth-child(2) > li:nth-child(2) > p"],
-        ["#visionmission > ul:nth-child(4) > li:nth-child(1) > p","#visionmission > ul:nth-child(4) > li:nth-child(2) > p","#visionmission > ul:nth-child(4) > li:nth-child(3) > p","#visionmission > ul:nth-child(4) > li:nth-child(4) > p","#visionmission > ul:nth-child(4) > li:nth-child(5) > p","#visionmission > ul:nth-child(4) > li:nth-child(6) > p","#visionmission > ul:nth-child(4) > li:nth-child(7) > p"]
+        [r"#visionmission > ul:nth-child(2) > li:nth-child(1) > p",r"#visionmission > ul:nth-child(2) > li:nth-child(2) > p"],
+        [r"#visionmission > ul:nth-child(4) > li:nth-child(1) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(2) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(3) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(4) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(5) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(6) > p",r"#visionmission > ul:nth-child(4) > li:nth-child(7) > p"]
     ]
 
     vis_data = scrape_headers_paragraphs_by_selectors(vis_url, clicks, headers, paragraphs)
     #print(vis_data)
 
-
-    # #aakarshan
+    #aakarshan
     aakar_url = "https://kmit.in/intiatives/aakarshan.php"
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     aakar_data = scrape_headers_paragraphs_by_selectors(aakar_url, clicks, headers, paragraphs)
@@ -1088,14 +1010,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
         "aakarshan club heads table"
     ]
 
-    tables=["#bec > div > div > div > div > table"]
+    tables=[r"#bec > div > div > div > div > table"]
 
     aakar_table_data = scrape_customheaders_tables_by_selectors(aakar_url, clicks, headers, tables, custom_headers=custom)
     #print(aakar_table_data)
@@ -1105,11 +1027,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     org_data = scrape_headers_paragraphs_by_selectors(org_url, clicks, headers, paragraphs)
@@ -1120,14 +1042,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
         "organisation committee club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     org_table_data = scrape_customheaders_tables_by_selectors(org_url, clicks, headers, tables,custom_headers=custom)
     #print(org_table_data)
@@ -1137,23 +1059,22 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p"]
+        [r"#bec > div > div > p"]
     ]
 
     pr_data = scrape_headers_paragraphs_by_selectors(pr_url, clicks, headers, paragraphs)
     #print(pr_data)
-
 
     #public relations(table)
     pr_url = "https://kmit.in/intiatives/pr.php"
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
@@ -1161,7 +1082,7 @@ if __name__ == '__main__':
     ]
 
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     pr_table_data = scrape_customheaders_tables_by_selectors(pr_url, clicks, headers, tables,custom_headers=custom)
     #print(pr_table_data)
@@ -1171,11 +1092,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     aal_data = scrape_headers_paragraphs_by_selectors(aal_url, clicks, headers, paragraphs)
@@ -1186,29 +1107,28 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
         "aalap club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     aal_table_data = scrape_customheaders_tables_by_selectors(aal_url, clicks, headers, tables,custom_headers=custom)
     #print(aal_table_data)
-
 
     #abhinaya
     abh_url = "https://kmit.in/intiatives/abhinaya.php"
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     abh_data = scrape_headers_paragraphs_by_selectors(abh_url, clicks, headers, paragraphs)
@@ -1219,16 +1139,17 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
         "abhinaya club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     abh_table_data = scrape_customheaders_tables_by_selectors(abh_url, clicks, headers, tables,custom_headers=custom)
+
     #print(abh_table_data)
 
     #kaivalya
@@ -1236,11 +1157,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     kai_data = scrape_headers_paragraphs_by_selectors(kai_url, clicks, headers, paragraphs)
@@ -1251,15 +1172,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "kaivalya club heads table"
+        r"kaivalya club heads table"
     ]
 
-
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     kai_table_data = scrape_customheaders_tables_by_selectors(kai_url, clicks, headers, tables,custom_headers=custom)
     #print(kai_table_data)
@@ -1269,14 +1189,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "kmitra club heads table"
+        r"kmitra club heads table"
     ]
 
-    tables = ["body > div > section > div > div > div.table-responsive > div > table"]
+    tables = [r"body > div > section > div > div > div.table-responsive > div > table"]
 
     kmi_table_data =  scrape_customheaders_tables_by_selectors(kmi_url, clicks, headers, tables,custom_headers=custom)
     #print(kmi_table_data)
@@ -1286,11 +1206,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "body > div > section > div > header > h4"
+        r"body > div > section > div > header > h4"
     ]
 
     paras = [
-        ["body > div > section > div > div > div.col-md-7 > p:nth-child(1)"]
+        [r"body > div > section > div > div > div.col-md-7 > p:nth-child(1)"]
     ]
 
     kmi_data = scrape_headers_paragraphs_by_selectors(kmi_url, clicks, headers, paras)
@@ -1301,29 +1221,29 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paras = [
-        ["#bec > div > div > p"]
+        [r"#bec > div > div > p"]
     ]
 
     kre_data = scrape_headers_paragraphs_by_selectors(kre_url, clicks, headers, paras)
     #print(kre_data)
 
-    # #kreeda(tables)
+    #kreeda(tables)
     kre_url = "https://kmit.in/intiatives/kreeda.php"
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "kreeda club heads table"
+        r"kreeda club heads table"
     ]
 
-    tables = ["#bec > div > div > ul > div > div > table"]
+    tables = [r"#bec > div > div > ul > div > div > table"]
 
     kre_table_data = scrape_customheaders_tables_by_selectors(kre_url, clicks, headers, tables,custom_headers=custom)
     #print(kre_table_data)
@@ -1333,14 +1253,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "mudra club heads table"
+        r"mudra club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     mudra_table_data = scrape_customheaders_tables_by_selectors(mudra_url, clicks, headers, tables,custom_headers=custom)
     #print(mudra_table_data)
@@ -1350,11 +1270,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     mudra_data = scrape_headers_paragraphs_by_selectors(mudra_url, clicks, headers, paragraphs)
@@ -1365,11 +1285,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     recu_data = scrape_headers_paragraphs_by_selectors(recu_url, clicks, headers, paragraphs)
@@ -1380,14 +1300,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "recurse club heads table"
+        r"recurse club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     recu_table_data = scrape_customheaders_tables_by_selectors(recu_url, clicks, headers, tables,custom_headers=custom)
     #print(recu_table_data)
@@ -1397,14 +1317,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "traces of lenses-photography club heads table"
+        r"traces of lenses-photography club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     tol_table_data = scrape_customheaders_tables_by_selectors(tol_url, clicks, headers, tables,custom_headers=custom)
     #print(tol_table_data)
@@ -1414,11 +1334,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     tol_data = scrape_headers_paragraphs_by_selectors(tol_url, clicks, headers, paragraphs)
@@ -1429,11 +1349,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#bec > div > div > header > h4"
+        r"#bec > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#bec > div > div > p:nth-child(2)"]
+        [r"#bec > div > div > p:nth-child(2)"]
     ]
 
     vac_data = scrape_headers_paragraphs_by_selectors(vac_url, clicks, headers, paragraphs)
@@ -1444,14 +1364,14 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        ""
+        r""
     ]
 
     custom = [
-        "vachan club heads table"
+        r"vachan club heads table"
     ]
 
-    tables = ["#bec > div > div > div > div > table"]
+    tables = [r"#bec > div > div > div > div > table"]
 
     vac_table_data = scrape_customheaders_tables_by_selectors(vac_url, clicks, headers, tables,custom_headers=custom)
     #print(vac_table_data)
@@ -1461,11 +1381,11 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#about-library > div > div > div > header > h4"
+        r"#about-library > div > div > div > header > h4"
     ]
 
     paragraphs = [
-        ["#about-library > div > div > div > p:nth-child(3)"]
+        [r"#about-library > div > div > div > p:nth-child(3)"]
     ]
 
     lib_data = scrape_headers_paragraphs_by_selectors(lib_url, clicks, headers, paragraphs)
@@ -1476,10 +1396,10 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "#about-library > div > div > div > h5:nth-child(9)"
+        r"#about-library > div > div > div > h5:nth-child(9)"
     ]
 
-    tables = ["#about-library > div > div > div > div:nth-child(11) > div > table"]
+    tables = [r"#about-library > div > div > div > div:nth-child(11) > div > table"]
 
     libstaff_data = scrape_headers_tables_by_selectors(libstaff_url, clicks, headers, tables)
     #print(libstaff_data)
@@ -1489,16 +1409,13 @@ if __name__ == '__main__':
     clicks = []
 
     headers = [
-        "body > div > section > div > header > h4"
+        r"body > div > section > div > header > h4"
     ]
     paragraphs = [
-        ["body > div > section > div > div.row > div.col-sm-9 > p"]
+        [r"body > div > section > div > div.row > div.col-sm-9 > p"]
     ]
 
     pri_data = scrape_headers_paragraphs_by_selectors(pri_url, clicks, headers, paragraphs)
-
-    
-
 
     print("INFO: Data scraping finished.")
 
